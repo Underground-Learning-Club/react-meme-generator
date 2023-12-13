@@ -3,7 +3,8 @@ import memesData from '../memesData'
 
 const Meme = () => {
   const getNewMemeImage = () => {
-    let randomNumber = Math.floor(Math.random() * 100) + 1
+    const memesArray = memesData.data.memes
+    let randomNumber = Math.floor(Math.random() * memesArray.length)
     console.log(memesData.data.memes[randomNumber].url)
   }
 
