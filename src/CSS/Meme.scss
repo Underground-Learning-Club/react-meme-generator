@@ -1,7 +1,7 @@
 main {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  // display: flex;
+  // flex-direction: column;
+  // gap: 2rem;
   width: 75%;
   margin: auto;
 }
@@ -27,4 +27,16 @@ main {
   color: white;
   border: none;
   cursor: pointer;
+}
+
+.meme--imgage-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 2rem;
+}
+
+.meme--image {
+  max-width: 100%;
 }
