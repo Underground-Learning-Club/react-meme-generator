@@ -1,41 +1,33 @@
+import { useState } from 'react'
 import '../CSS/Meme.scss'
 import memesData from '../memesData'
 
 const Meme = () => {
+  const [memeImage, setMemeImage] = useState('')
+
   const getNewMemeImage = () => {
     const memesArray = memesData.data.memes
-    let randomNumber = Math.floor(Math.random() * memesArray.length)
-    console.log(memesData.data.memes[randomNumber].url)
+    const randomNumber = Math.floor(Math.random() * memesArray.length)
+    const url = memesArray[randomNumber].url
+    setMemeImage(url)
   }
 
   return (
     <>
-      <div className="meme--form">
-        <div className="meme--input-fields-wrapper">
-          <div className="meme--input-field-wrapper">
-            <label htmlFor="topText">Top text</label>
-            <input
-              className="meme--input"
-              type="text"
-              name="topText"
-              placeholder="Top Text"
-            />
-          </div>
-          <div className="meme--input-field-wrapper">
-            <label htmlFor="bottomtext">Bottom text</label>
-            <input
-              className="meme--input"
-              type="text"
-              name="bottomText"
-              placeholder="Bottom Text"
-            />
-          </div>
+      <main>
+        <div className="form">
+          <input type="text" placeholder="Top text" className="form--input" />
+          <input
+            type="text"
+            placeholder="Bottom text"
+            className="form--input"
+          />
+          <button className="form--button" onClick={getNewMemeImage}>
+            Get a new meme image 🖼
+          </button>
         </div>
-
-        <button className="meme--btn" onClick={getNewMemeImage}>
-          Get new meme image
-        </button>
-      </div>
+        <img src={memeImage} className="meme--image" />
+      </main>
     </>
   )
 }
